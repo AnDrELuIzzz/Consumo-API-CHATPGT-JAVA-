@@ -7,7 +7,13 @@ public class App {
         properties.load(new FileInputStream("src/app.properties"));
         final String OPENAI_API_KEY = 
             properties.getProperty("OPENAI_API_KEY");
-        System.out.println(OPENAI_API_KEY);
 
+        // instanciar o ChatGPTClient
+        //Pegar um assunto junto ao usuário
+        //Pegar uma dificuldade junto ao usuário
+        //Pegar um tipo junto ao usuário
+        //Pegar uma dificuldade junto ao usuário
+        //Chamar o método criarPergunta, obter o resultado
+        //e exibir
     }
 }
