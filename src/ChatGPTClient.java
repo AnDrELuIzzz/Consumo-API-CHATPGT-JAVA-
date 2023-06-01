@@ -9,12 +9,13 @@ public class ChatGPTClient {
   public String criarPergunta(
       String OPENAI_API_KEY,
       String texto,
-      int opcao) throws Exception {
+      int opcao,
+      int n) throws Exception {
     // Definir os prompts com base na opção escolhida
     String prompt;
     if (opcao == 1) {
       prompt = """
-          Apenas traduza o seguinte texto para o português %s.
+          Apenas traduza o seguinte texto de forma alternativa para o português %s.
           """.formatted(texto);
     } else if (opcao == 2) {
       prompt = """
@@ -34,6 +35,7 @@ public class ChatGPTClient {
     var requisicao = new ChatGPTRequest(
         "text-davinci-003",
         prompt,
+        n,
         100);
 
     var gson = new Gson();
@@ -55,7 +57,15 @@ public class ChatGPTClient {
 
     Response response = httpClient.newCall(request).execute();
     ChatGPTResponse chatGPTResponse = gson.fromJson(response.body().string(), ChatGPTResponse.class);
-    String completion = chatGPTResponse.getChoices().get(0).getText();
+
+    String completion;
+    if (n == 1) {
+      completion = chatGPTResponse.getChoices().get(0).getText();
+    } else {
+      completion = chatGPTResponse.getChoices().get(0).getText() + chatGPTResponse.getChoices().get(1)
+          .getText();
+    }
+
     return completion;
   }
 }

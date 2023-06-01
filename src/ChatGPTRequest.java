@@ -10,5 +10,6 @@ import lombok.Setter;
 public class ChatGPTRequest {
   private String model;
   private String prompt;
+  private int n;
   private int max_tokens;
 }
