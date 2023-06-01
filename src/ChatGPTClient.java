@@ -1,5 +1,4 @@
 import com.google.gson.Gson;
-
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -24,9 +23,10 @@ public class ChatGPTClient {
           texto);
     } else if (opcao == 3) {
       prompt = """
-          Retorne uma explicação para uma criança da seguinte pergunta (com no máximo 30 palavras!) %s.
-          """.formatted(
-          texto);
+          Forneça uma explicação, com até 30 palavras, adequada para uma criança de até 11 anos, para a seguinte pergunta: %s.
+          """
+          .formatted(
+              texto);
     } else {
       throw new IllegalArgumentException("Opção inválida");
     }
