@@ -9,21 +9,28 @@ import okhttp3.Response;
 public class ChatGPTClient {
   public String criarPergunta(
       String OPENAI_API_KEY,
-      String assunto,
-      String tipo,
-      String dificuldade) throws Exception {
-    // montar o prompt
-    // text block(Java 15+)
-    String prompt = """
-          Elabore uma questão sobre %s.
-          Do tipo %s%s.
-          Nível de dificuldade %s.
+      String texto,
+      int opcao) throws Exception {
+    // Definir os prompts com base na opção escolhida
+    String prompt;
+    if (opcao == 1) {
+      prompt = """
+          Traduza o seguinte texto para o português %s.
+          """.formatted(texto);
+    } else if (opcao == 2) {
+      prompt = """
+          Me retorne três emoji para o seguinte filme %s.
+          """.formatted(
+          texto);
+    } else if (opcao == 3) {
+      prompt = """
+          Retorne uma explicação para uma criança da seguinte pergunta (com no máximo 30 palavras!) %s.
+          """.formatted(
+          texto);
+    } else {
+      throw new IllegalArgumentException("Opção inválida");
+    }
 
-        """.formatted(
-        assunto,
-        tipo,
-        tipo.equalsIgnoreCase("alternativa") ? " com 4 alternativas" : "",
-        dificuldade);
     var requisicao = new ChatGPTRequest(
         "text-davinci-003",
         prompt,
