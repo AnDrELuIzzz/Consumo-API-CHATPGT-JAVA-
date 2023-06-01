@@ -14,11 +14,11 @@ public class ChatGPTClient {
     String prompt;
     if (opcao == 1) {
       prompt = """
-          Traduza o seguinte texto para o português %s.
+          Apenas traduza o seguinte texto para o português %s.
           """.formatted(texto);
     } else if (opcao == 2) {
       prompt = """
-          Me retorne três emoji para o seguinte filme %s.
+          Me retorne obrigatóriamente três emoji para o seguinte filme %s.
           """.formatted(
           texto);
     } else if (opcao == 3) {

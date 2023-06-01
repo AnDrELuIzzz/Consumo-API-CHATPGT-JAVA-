@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Main {
-    private static final int OPCAO_SAIR = 4;
     private static final String PROPRIEDADE_API_KEY = "OPENAI_API_KEY";
 
     public static void main(String[] args) throws Exception {
@@ -14,7 +13,7 @@ public class Main {
             var chatGPTClient = new ChatGPTClient();
 
             int opt = 1;
-            while (opt != OPCAO_SAIR) {
+            while (opt != 4) {
                 opt = obterOpcaoUsuario();
                 switch (opt) {
                     case 1:
