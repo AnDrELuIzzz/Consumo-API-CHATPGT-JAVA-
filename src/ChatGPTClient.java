@@ -63,7 +63,7 @@ public class ChatGPTClient {
     if (n == 1) {
       completion = chatGPTResponse.getChoices().get(0).getText();
     } else {
-      completion = chatGPTResponse.getChoices().get(0).getText() + chatGPTResponse.getChoices().get(1)
+      completion = chatGPTResponse.getChoices().get(0).getText() + " " + chatGPTResponse.getChoices().get(1)
           .getText();
     }
 
