@@ -54,19 +54,20 @@ public class Main {
 
     private static void traduzirTexto(ChatGPTClient chatGPTClient, String apiKey) throws Exception {
         String text = JOptionPane.showInputDialog(null, "Digite o texto a ser traduzido.");
-        String retorno = chatGPTClient.criarPergunta(apiKey, text, 1, 2);
+        String retorno = chatGPTClient.criarPergunta(apiKey, text, 1, 2, 1.3);
         JOptionPane.showMessageDialog(null, retorno);
     }
 
     private static void obterEmojiFilme(ChatGPTClient chatGPTClient, String apiKey) throws Exception {
-        String filme = JOptionPane.showInputDialog(null, "Digite o nome do filme:");
-        String retorno = chatGPTClient.criarPergunta(apiKey, filme, 2, 1);
+        String filme = JOptionPane.showInputDialog(
+                null, "Digite o nome do filme:");
+        String retorno = chatGPTClient.criarPergunta(apiKey, filme, 2, 1, 0);
         JOptionPane.showMessageDialog(null, retorno);
     }
 
     private static void receberExplicacao(ChatGPTClient chatGPTClient, String apiKey) throws Exception {
         String explicacao = JOptionPane.showInputDialog(null, "Digite a explicação:");
-        String retorno = chatGPTClient.criarPergunta(apiKey, explicacao, 3, 1);
+        String retorno = chatGPTClient.criarPergunta(apiKey, explicacao, 3, 1, 0);
         JOptionPane.showMessageDialog(null, retorno);
     }
 

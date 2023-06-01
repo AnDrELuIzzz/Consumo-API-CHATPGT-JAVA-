@@ -10,13 +10,14 @@ public class ChatGPTClient {
       String OPENAI_API_KEY,
       String texto,
       int opcao,
-      int n) throws Exception {
+      int n,
+      double temperature) throws Exception {
     // Definir os prompts com base na opção escolhida
     String prompt;
     if (opcao == 1) {
       prompt = """
-          Apenas traduza o seguinte texto de forma alternativa para o português %s.
-          """.formatted(texto);
+          Traduza a palavra %s em portugues
+          """.formatted(texto, texto);
     } else if (opcao == 2) {
       prompt = """
           Me retorne obrigatóriamente três emoji para o seguinte filme %s.
@@ -36,7 +37,7 @@ public class ChatGPTClient {
         "text-davinci-003",
         prompt,
         n,
-        100);
+        100, temperature);
 
     var gson = new Gson();
 

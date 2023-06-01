@@ -12,4 +12,5 @@ public class ChatGPTRequest {
   private String prompt;
   private int n;
   private int max_tokens;
+  private double temperature;
 }
