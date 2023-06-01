@@ -1,5 +1,7 @@
 ## PROJETO CHATGPT P2
 
+<hr>
+
 ### Integrantes:
 
 André Luiz Araujo Carvalho, RA: 2040482212035
